@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+.header {
+    background: linear-gradient(90deg, #38cb89, #36b78c);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+.match-info {
+    flex-grow: 1;
+    text-align: center;
+}
+.icons {
+    display: flex;
+    gap: 10px;
+}
+.icon {
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.tabs {
+    display: flex;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tab {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.tab.active {
+    color: #8b0000;
+    border-bottom: 2px solid #8b0000;
+}
+.filter-bar {
+    background-color: #f8f8f8;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+.filter-options {
+    display: flex;
+    gap: 10px;
+}
+.filter-button {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#contestList {
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    padding: 10px;
+}
+.contest-card {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.prize-pool {
+    font-size: 20px;
+    font-weight: bold;
+}
+.entry-fee {
+    float: right;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.progress-bar {
+    background-color: #ffebee;
+    height: 4px;
+    margin: 10px 0;
+    border-radius: 2px;
+}
+.progress {
+    background-color: #ff0000;
+    height: 100%;
+    border-radius: 2px;
+}
+.contest-details {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.contest-details i {
+    margin-right: 5px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.filter-option {
+    margin: 10px 0;
+}
+.filter-option label {
+    margin-left: 5px;
+}
+.contest-link {
+    text-decoration: none;
+   
+}
+
+.contest-card:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+    }
+    .match-info {
+        order: -1;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .icons {
+        width: 100%;
+        justify-content: space-around;
+    }
+    .tabs {
+        font-size: 12px;
+    }
+    .tab {
+        padding: 10px 15px;
+    }
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filter-options {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .contest-card {
+        padding: 10px;
+    }
+    .prize-pool {
+        font-size: 16px;
+    }
+    .entry-fee {
+        padding: 3px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 5px 10px;
+    }
+    .back-button {
+        font-size: 18px;
+    }
+    .icon {
+        padding: 3px 8px;
+        font-size: 12px;
+    }
+    .tabs {
+        font-size: 10px;
+    }
+    .tab {
+        padding: 8px 12px;
+    }
+    .filter-bar {
+        padding: 5px 10px;
+    }
+    .contest-details {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .prize-pool {
+        font-size: 14px;
+    }
+    .entry-fee {
+        padding: 2px 8px;
+        font-size: 10px;
+    }
+    .contest-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

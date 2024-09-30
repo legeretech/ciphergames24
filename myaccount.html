@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Platform Account</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="profile-settings-header">
+        <div class="profile-back-button">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+      
+    </header>
+
+
+    <div class="my-accounts-container">
+        <h1 class="my-accounts-h1">My Account</h1>
+
+        <!-- Flexbox Row for Deposit and Winnings -->
+        <div class="my-accounts-row">
+            <div class="my-accounts-account-section">
+                <h2>Deposit</h2>
+                <div class="my-accounts-balance">10,000 CPR</div>
+                <p class="my-accounts-note">This CPR cannot be withdrawn</p>
+                <button class="my-accounts-button" onclick="openModal('addCreditsModal')">ADD CREDITS</button>
+            </div>
+
+            <div class="my-accounts-account-section">
+                <h2>Winnings</h2>
+                <div class="my-accounts-balance">5,200 CPR</div>
+                <p class="my-accounts-note">Minimum 1000 CPR can be withdrawn</p>
+                <button class="my-accounts-button" onclick="openModal('withdrawModal')">WITHDRAW</button>
+            </div>
+        </div>
+
+        <!-- Other Sections -->
+        <div class="my-accounts-account-section">
+            <h2>Bonus Credits</h2>
+            <div class="my-accounts-balance">500 CPR</div>
+            <p class="my-accounts-note">Bonus credits expire in 7 days</p>
+            <div class="my-accounts-progress-bar">
+                <div class="my-accounts-progress"></div>
+            </div>
+        </div>
+
+        <div class="my-accounts-account-section">
+            <h2>Quick Actions</h2>
+            <div class="my-accounts-action-item">
+                <div>
+                    <i class="fas fa-gamepad"></i>
+                    Join a Game
+                </div>
+                <button class="my-accounts-button">PLAY NOW</button>
+            </div>
+            <div class="my-accounts-action-item">
+                <div>
+                    <i class="fas fa-history"></i>
+                    Game History
+                </div>
+                <button class="my-accounts-button">VIEW</button>
+            </div>
+            <div class="my-accounts-action-item">
+                <div>
+                    <i class="fas fa-cog"></i>
+                    Account Settings
+                </div>
+                <button class="my-accounts-button">MANAGE</button>
+            </div>
+            <div class="my-accounts-action-item">
+                <div>
+                    <i class="fas fa-headset"></i>
+                    Support
+                </div>
+                <button class="my-accounts-button">CONTACT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Credits Modal -->
+    <div id="addCreditsModal" class="my-accounts-modal">
+        <div class="my-accounts-modal-content">
+            <span class="my-accounts-modal-close" onclick="closeModal('addCreditsModal')">&times;</span>
+            <div class="my-accounts-modal-header">Add Credits</div>
+            <div class="my-accounts-modal-body">
+                <img style="width: 100px;" src="./images/qrcode.png" alt="Scanner" class="my-accounts-scanner-image">
+                <label for="addCreditsInput">Enter Credits:</label>
+                <input type="number" id="addCreditsInput" placeholder="Enter credits to add">
+                <button class="my-accounts-copy-btn" onclick="copyText('addCreditsInput')">Copy Text</button>
+            </div>
+            <button class="my-accounts-submit-btn" onclick="submitCredits()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Withdraw Modal -->
+    <div id="withdrawModal" class="my-accounts-modal">
+        <div class="my-accounts-modal-content">
+            <span class="my-accounts-modal-close" onclick="closeModal('withdrawModal')">&times;</span>
+            <div class="my-accounts-modal-header">Withdraw</div>
+            <div class="my-accounts-modal-body">
+                <label for="withdrawAmount">Amount:</label>
+                <input type="number" id="withdrawAmount" placeholder="Enter amount to withdraw">
+            </div>
+            <button class="my-accounts-submit-btn" onclick="submitWithdrawal()">Withdraw</button>
+        </div>
+    </div>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function copyText(inputId) {
+            const input = document.getElementById(inputId);
+            input.select();
+            document.execCommand("copy");
+            alert("Copied the text: " + input.value);
+        }
+
+        function submitCredits() {
+            const credits = document.getElementById("addCreditsInput").value;
+            // Code to handle adding credits
+            alert("Added " + credits + " credits!");
+            closeModal('addCreditsModal');
+        }
+
+        function submitWithdrawal() {
+            const amount = document.getElementById("withdrawAmount").value;
+            // Code to handle withdrawal
+            alert("Withdrawn " + amount + " CPR!");
+            closeModal('withdrawModal');
+        }
+    </script>
+
+   <!-- Bottom Footer Section Start -->
+   <div class="bottom-footer-bar">
+    <div class="bottom-footer-nav-item active">
+       <a href="index.html"> <i class="fas fa-home"></i></a> 
+        <span>Home</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+      <a href="contest.html"><i class="fas fa-trophy"></i></a>  
+        <span>contest</span>
+    </div>
+    <div class="bottom-footer-nav-item plus">
+        <a href="wallet.html"><i class="fas fa-wallet"></i></a>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <a href=""><i class="fas fa-history"></i></a>
+        
+        <span>History</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <a href="profile.html"> <i class="fas fa-user"></i></a>
+
+        <span>Profile</span>
+    </div>
+</div>
+<!-- Bottom Footer Section End -->
+
+</body>
+
+</html>

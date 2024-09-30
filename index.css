@@ -1,0 +1,1619 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif; 
+    background-color: #f0f0f0; 
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+/* mian home navbar css */
+.navbar {
+    background: linear-gradient(90deg, #38cb89, #36b78c);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;  
+    top: 0; 
+    z-index: 1000;  
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+.nav-links li {
+  margin: 5px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.nav-links a:hover, .nav-links a:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.nav-links a:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+}
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: linear-gradient(90deg, #38cb89, #36b78c);
+        padding: 1rem;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .navbar-container {
+        flex-wrap: wrap;
+    }
+}
+/* mian home navbar css end */
+
+/* user profile start */
+   /* Content Section */
+   .user-settings-content {
+    padding: 20px;
+ 
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Logo Section */
+.user-logo-section {
+    margin-right: 20px; /* Space between logo and user info */
+}
+
+.user-logo {
+    width: 80px; /* Set logo size */
+    height: auto;
+}
+
+/* User Info Section */
+.user-info-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px auto; /* Center the section horizontally */
+    flex-grow: 1; /* Allow this section to take available space */
+    max-width: 1200px; /* Restrict the width to 800px */
+    width: 100%; /* Ensure responsiveness */
+}
+
+.user-info-input {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.user-info-input:hover {
+    background-color: #f0f0f0; /* Background change on hover */
+}
+
+.user-editable-input {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between; /* Align content and arrow icon */
+    align-items: center;
+}
+
+.user-editable-input i {
+    font-size: 16px;
+    color: #007bff;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.user-editable-input i:hover {
+    color: #0056b3; /* Change icon color on hover */
+}
+
+.user-editable-input p {
+    margin: 0; /* Remove default margin */
+    color: #333;
+    font-size: 16px;
+    width: 80%;
+}
+
+/* Right Arrow Icon */
+.user-arrow-right {
+    font-size: 16px;
+    color: #007bff;
+    margin-left: auto; /* Push arrow icon to the right */
+    transition: color 0.3s ease;
+}
+
+.user-arrow-right:hover {
+    color: #0056b3; /* Change arrow color on hover */
+}
+
+/* User Name */
+.user-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .user-settings-content {
+        margin-top: 50px;
+        flex-direction: column; /* Stack items on smaller screens */
+        align-items: stretch;
+    }
+
+    .user-logo-section {
+        margin: 0 auto; /* Center logo on smaller screens */
+        margin-bottom: 15px;
+    }
+
+    .user-info-input {
+        padding: 10px;
+    }
+}
+
+
+
+/* user profile  end*/
+
+/* games listing section */
+.listing-card-main{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 100px;
+
+}
+
+/* Container and Card Styles */
+.listing-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.listing-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.listing-h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1c1c1e;
+    margin: 0;
+}
+
+.listing-view-all {
+    color: #007AFF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Match Info */
+.listing-match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+/* Team Logos */
+.listing-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.listing-team-logo {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+margin-bottom: 4px;
+overflow: hidden;
+}
+.listing-team-logo i {
+font-size: 20px; /* Adjust the icon size */
+color: #007AFF; /* Optional: icon color */
+}
+
+
+/* Match Details */
+.listing-match-info {
+    text-align: center;
+    font-size: 14px;
+}
+
+.listing-status {
+    font-size: 12px;
+    color: #8E8E93;
+}
+
+.listing-result {
+    color: #34C759;
+    font-size: 12px;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* Discount Badge */
+.listing-discount {
+    background-color: #FFF8E6;
+    color: #FF9500;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Upcoming Match Section */
+.listing-upcoming-match {
+    border-bottom: 1px solid #E5E5EA;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.listing-upcoming-match:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* Countdown */
+.listing-countdown {
+    color: #FF3B30;
+    font-weight: 600;
+}
+
+.listing-time {
+    color: #8E8E93;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.listing-prize {
+    color: #FF9500;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.listing-lineups {
+    color: #34C759;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.listing-lineups i {
+    margin-right: 4px;
+}
+
+.listing-type {
+    font-size: 12px;
+    color: #8E8E93;
+    margin-bottom: 4px;
+}
+
+.listing-contest-info {
+    font-size: 12px;
+    color: #8E8E93;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .listing-card-main{
+        padding: 10px;
+    }
+
+    .listing-card {
+        padding: 12px;
+    }
+
+    .listing-h1 {
+        font-size: 16px;
+    }
+
+    .listing-view-all {
+        font-size: 12px;
+    }
+
+    .listing-match-info {
+        font-size: 12px;
+    }
+}
+/* games listing section */
+
+/* verify account */
+.verifyaccount-container-mian{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+
+    color: #333;
+}
+.verifyaccount-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.verifyaccount-container h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.verifyaccount-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.verifyaccount-tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #7f8c8d;
+}
+.verifyaccount-tab:hover {
+    background-color: #e9ecef;
+}
+.verifyaccount-tab.active {
+    background-color: #ffffff;
+    color: #2980b9;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.verifyaccount-tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.verifyaccount-tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.verifyaccount-status {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+.verifyaccount-status-icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+.verifyaccount-verified .verifyaccount-status-icon {
+    color: #27ae60;
+}
+.verifyaccount-not-verified .verifyaccount-status-icon {
+    color: #e74c3c;
+}
+.verifyaccount-status-text {
+    font-weight: 500;
+}
+.verifyaccount-verified .verifyaccount-status-text {
+    color: #27ae60;
+}
+.verifyaccount-not-verified .verifyaccount-status-text {
+    color: #e74c3c;
+}
+
+/* verify account */
+        /*profile section  */
+        .profile-settings-header {
+            background: linear-gradient(90deg, #38cb89, #36b78c);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+         
+        }
+
+        .profile-settings-header h1 {
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        .profile-back-button {
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        /* Content Section */
+        .profile-settings-content {
+            padding: 20px;
+            margin-bottom: 70px;
+        }
+
+        /* Settings Items */
+        .profile-settings-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-settings-item i {
+            color: #999;
+        }
+
+        /* User Info Section */
+        .profile-user-info-section {
+            margin-top: 10px;
+        }
+
+        .profile-user-info-input {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-user-info-input label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .profile-editable-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-editable-input input {
+            border: none;
+            background-color: transparent;
+            color: #333;
+            font-size: 16px;
+            width: 80%;
+            cursor: not-allowed;
+        }
+
+        .profile-editable-input i {
+            font-size: 16px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        /* Gender Section */
+        .profile-gender-section {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .profile-gender-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .profile-gender-options label {
+            font-size: 16px;
+        }
+
+        .profile-gender-options input {
+            margin-right: 5px;
+        }
+
+        /* Actions */
+        .profile-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .profile-logout-button {
+            background-color: transparent;
+            border: none;
+            color: #d9534f;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-logout-button i {
+            margin-right: 5px;
+            font-size: 16px;
+        }
+
+        .profile-update-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .profile-settings-header h1 {
+                font-size: 18px;
+            }
+
+            .profile-settings-item,
+            .profile-user-info-input,
+            .profile-gender-section {
+                padding: 10px;
+            }
+
+            .profile-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .profile-logout-button {
+                margin-bottom: 10px;
+                text-align: left;
+            }
+
+            .profile-update-button {
+                width: 100%;
+            }
+        }
+           /*profile section  */
+
+/* refferal section */
+.referral-container-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.referral-container {
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Header Section with Banner Image */
+.referral-banner {
+    background: linear-gradient(90deg, #38cb89, #36b78c);
+    text-align: center;
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+
+.referral-banner img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.referral-banner h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referral-banner p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+/* Referral Code Section */
+.referral-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.referral-section h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.referral-code-box {
+    display: inline-block;
+    background-color: #E3F1FF;
+    padding: 10px 20px;
+    border: 2px dashed #38cb89;
+    color: #38cb89;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.referral-copy-btn {
+   
+    background-color:  #38cb89;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Info Section */
+.referral-info-section {
+    padding: 20px;
+}
+
+.referral-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.referral-info img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.referral-info p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Footer Buttons */
+.referral-footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.referral-footer button {
+    width: 45%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+.referral-invite-btn {
+    background: linear-gradient(90deg, #38cb89, #36b78c);
+    color: white;
+}
+
+.referral-share-btn {
+    background-color: #ffdc40;
+    color: white;
+}
+
+/* Terms and Conditions */
+.referral-terms {
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    color: #777;
+}
+
+.referral-terms a {
+    text-decoration: none;
+    color: #777;
+    border-bottom: 1px solid #777;
+}
+
+/* refferal section */
+
+/* wallet section */
+.wallet-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: linear-gradient(90deg, #38cb89, #36b78c);
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.wallet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.wallet-logo img {
+    height: 50px;
+}
+
+.wallet-support-icon img {
+    height: 30px;
+}
+
+.wallet-balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.wallet-balance-circle {
+    background-color: #3a3a3a;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8c44f7;
+}
+
+.wallet-balance-info {
+    text-align: left;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.wallet-balance-info p {
+    font-size: 14px;
+    color: #fefefe;
+}
+
+.wallet-balance-info h2 {
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+.wallet-view-statement {
+    color: #f0a200;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.wallet-add-cash-btn {
+    background-color: #1bbf3e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.wallet-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.wallet-stat-item {
+    text-align: center;
+    flex: 1;
+    padding: 0 10px;
+}
+
+.wallet-stat-item p {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.wallet-stat-item h3 {
+    font-size: 18px;
+    margin-top: 5px;
+    color: #fff;
+}
+
+.wallet-actions {
+    margin-top: 20px;
+}
+
+.wallet-action-item {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wallet-action-item p {
+    font-size: 14px;
+    color: white;
+}
+
+.wallet-action-item span {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Popup Styling */
+.wallet-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.wallet-popup-content {
+    background: linear-gradient(90deg, #38cb89, #36b78c);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.wallet-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.wallet-quick-amounts button {
+    background-color: #68fb58;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.wallet-quick-amounts button:hover {
+    background-color: #444;
+}
+
+.wallet-amount-details p {
+    margin: 10px 0;
+}
+
+.wallet-popup-content input[type="text"],
+.wallet-popup-content input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-popup-content input[type="text"]:focus,
+.wallet-popup-content input[type="number"]:focus {
+    outline: none;
+    border: 2px solid #1bbf3e; /* Highlight color on focus */
+}
+
+.wallet-submit-btn {
+    background-color: #1bbf3e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+/* wallet section */
+
+/* my account  */
+.my-accounts-container {
+    max-width: 800px;
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    color: #333;
+}
+
+.my-accounts-h1 {
+    color: #38a169;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* Flexbox for Deposit and Winnings sections */
+.my-accounts-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.my-accounts-account-section {
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    padding: 15px;
+    flex: 1;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+}
+
+.my-accounts-account-section h2 {
+    margin-top: 0;
+    color: #38a169;
+    font-size: 1.2em;
+}
+
+.my-accounts-balance {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2b7a4b;
+    margin-bottom: 5px;
+}
+
+.my-accounts-note {
+    font-size: 0.85em;
+    color: #777;
+}
+
+.my-accounts-button {
+    padding: 8px 16px;
+    background-color: #38a169;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.my-accounts-button:hover {
+    background-color: #2f855a;
+}
+
+/* Action items styles */
+.my-accounts-action-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.my-accounts-action-item:last-child {
+    border-bottom: none;
+}
+
+.my-accounts-action-item i {
+    margin-right: 8px;
+    color: #38a169;
+    font-size: 1em;
+}
+
+/* Progress bar for Bonus Credits */
+.my-accounts-progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    margin-top: 5px;
+    height: 8px;
+}
+
+.my-accounts-progress {
+    width: 70%;
+    height: 100%;
+    background-color: #2f855a;
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Modal styles */
+.my-accounts-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.my-accounts-modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 15px;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.my-accounts-modal-header {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.my-accounts-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.my-accounts-modal-body {
+    margin-bottom: 15px;
+}
+
+.my-accounts-copy-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #38a169;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+/* Submit button */
+.my-accounts-submit-btn {
+    width: 100%;
+    background-color: #38a169;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.my-accounts-submit-btn:hover {
+    background-color: #2f855a;
+}
+
+/* my account */
+
+/* history */
+.history-tabs-main{
+    padding: 20px;
+}
+.history-tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.history-tab-item {
+    color: gray;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.history-tab-item.active {
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+.history-match-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    display: none; /* Hidden by default */
+}
+
+.history-match-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.history-team-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.history-team {
+    display: flex;
+    align-items: center;
+}
+
+.history-team img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.history-team-code {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.history-status {
+    color: gray;
+    font-size: 14px;
+}
+
+.history-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+}
+
+.history-price {
+    color: green;
+    font-weight: bold;
+}
+
+/* history  */
+
+/* scoreboard */
+.scoreboard-container-main{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    margin: 0;
+    padding: 0;
+    color: #323C4F;
+    padding: 20px;
+}
+
+/* Main Container */
+.scoreboard-container {
+    max-width: 450px;
+    margin: 0 auto;
+
+
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header Section */
+.scoreboard-header {
+    background: linear-gradient(90deg, #38cb89, #36b78c);
+    color: #fff;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.scoreboard-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.scoreboard-header .scoreboard-time {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.scoreboard-header .scoreboard-icon {
+    font-size: 20px;
+}
+
+/* Progress Bar Section */
+.scoreboard-progress-container {
+    padding: 20px;
+}
+
+.scoreboard-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scoreboard-progress-info h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #323C4F;
+}
+
+.scoreboard-progress-bar {
+    position: relative;
+    height: 8px;
+    background-color: #E0E0E0;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.scoreboard-progress-fill {
+    width: 40%; /* Adjust based on progress */
+    height: 100%;
+    background-color: #1E88E5;
+    border-radius: 4px;
+}
+
+.scoreboard-spots-left {
+    font-size: 14px;
+    color: #A0A0A0;
+}
+
+/* Info Bar */
+.scoreboard-info-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px ;
+    color: #8B9CA8;
+    font-size: 14px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.scoreboard-info-bar i {
+    margin-right: 5px;
+}
+
+/* Tabs Section */
+.scoreboard-tabs {
+    display: flex;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.scoreboard-tab {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    color: #8B9CA8;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.scoreboard-tab.active {
+    color: #1E88E5;
+    border-bottom: 2px solid #1E88E5;
+}
+
+/* Content */
+.scoreboard-tab-content {
+    display: none;
+    padding: 15px 20px;
+}
+
+.scoreboard-tab-content.active {
+    display: block;
+}
+
+/* Leaderboard & Winnings List */
+.scoreboard-list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #E0E0E0;
+    color: #323C4F;
+}
+
+.scoreboard-list-item:last-child {
+    border-bottom: none;
+}
+
+.scoreboard-list-item .scoreboard-rank {
+    font-weight: 500;
+    color: #8B9CA8;
+}
+
+.scoreboard-list-item .scoreboard-amount {
+    font-weight: 600;
+}
+
+/* Join Now Button */
+.scoreboard-join-now {
+    display: flex;
+    background-color: #1E88E5;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    max-width: 150px;
+    justify-content: center;
+    margin: 20px auto; /* Centering the button */
+    font-size: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.scoreboard-join-now:hover {
+    background-color: #1565C0;
+}
+
+/* Responsive */
+@media (max-width: 450px) {
+    .scoreboard-progress-info h4 {
+        font-size: 16px;
+    }
+
+    .scoreboard-header h3 {
+        font-size: 16px;
+    }
+
+    .scoreboard-tabs {
+        font-size: 12px;
+    }
+
+    .scoreboard-tab-content {
+        padding: 10px 15px;
+    }
+}
+
+/* scoreboard */
+
+     /* Bottom Footer Styles */
+     .bottom-footer-bar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 70px;
+        background-color: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 20px 20px 0 0;
+        z-index: 1000;
+    }
+
+    .bottom-footer-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        position: relative;
+        flex: 1;
+        transition: color 0.3s ease;
+    }
+
+    .bottom-footer-nav-item.active {
+        color: #38cb89;
+      
+    }
+
+    .bottom-footer-nav-item a {
+
+        color: #38cb89;
+    }
+
+    .bottom-footer-nav-item span {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    .bottom-footer-nav-item i {
+        font-size: 22px;
+    
+    }
+
+    .bottom-footer-nav-item.plus {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(90deg, #38cb89, #36b78c);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+    }
+
+    .bottom-footer-nav-item.plus i {
+        font-size: 28px;
+        color: white;
+    }
+
+    .bottom-footer-nav-item:hover {
+        color: #67ff80;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .bottom-footer-bar {
+            height: 60px;
+            padding: 0 10px;
+        }
+
+        .bottom-footer-nav-item i {
+            font-size: 18px;
+        }
+
+        .bottom-footer-nav-item span {
+            font-size: 10px;
+        }
+
+        .bottom-footer-nav-item.plus {
+            width: 50px;
+            height: 50px;
+            bottom: 15px;
+        }
+
+        .bottom-footer-nav-item.plus i {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .bottom-footer-bar {
+            height: 50px;
+            padding: 0 5px;
+        }
+
+        .bottom-footer-nav-item i {
+            font-size: 16px;
+        }
+
+        .bottom-footer-nav-item span {
+            font-size: 8px;
+        }
+
+        .bottom-footer-nav-item.plus {
+            width: 40px;
+            height: 40px;
+            bottom: 10px;
+        }
+
+        .bottom-footer-nav-item.plus i {
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 300px) {
+        .bottom-footer-nav-item span {
+            display: none;
+        }
+
+        .bottom-footer-bar {
+            height: 40px;
+        }
+
+        .bottom-footer-nav-item.plus {
+            width: 30px;
+            height: 30px;
+            bottom: 5px;
+        }
+
+        .bottom-footer-nav-item.plus i {
+            font-size: 16px;
+        }
+    }
+     /* Bottom Footer end Styles */
+
+
+

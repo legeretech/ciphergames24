@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Info & Settings</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="profile-settings-header">
+        <div class="profile-back-button">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <h1>My Info & Settings</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="profile-settings-content">
+
+        <!-- User Info Section -->
+        <div class="profile-user-info-section">
+            <div class="profile-user-info-input">
+                <label for="name">Name</label>
+                <div class="profile-editable-input">
+                    <input type="text" id="name" value="Muhammad Rashid" disabled>
+                    <i class="fas fa-pen" onclick="editField('name')"></i>
+                </div>
+            </div>
+            <div class="profile-user-info-input">
+                <label for="teamname">Team Name</label>
+                <div class="profile-editable-input">
+                    <input type="text" id="teamname" value="Rashid254" disabled>
+                    <i class="fas fa-pen" onclick="editField('teamname')"></i>
+                </div>
+            </div>
+            <div class="profile-user-info-input">
+                <label for="Address">Address</label>
+                <div class="profile-editable-input">
+                    <input type="text" id="Address" value="mannarkkad,palakkad" disabled>
+                    <i class="fas fa-pen" onclick="editField('Address')"></i>
+                </div>
+            </div>
+
+            <div class="profile-user-info-input">
+                <label for="email">Email</label>
+                <div class="profile-editable-input">
+                    <input type="email" id="email" value="example@mail.com" disabled>
+                    <i class="fas fa-pen" onclick="editField('email')"></i>
+                </div>
+            </div>
+
+            <div class="profile-user-info-input">
+                <label for="mobile">Mobile</label>
+                <div class="profile-editable-input">
+                    <input type="tel" id="mobile" value="8592949654" disabled>
+                    <i class="fas fa-pen" onclick="editField('mobile')"></i>
+                </div>
+            </div>
+            <div class="profile-user-info-input">
+                <label for="city">City</label>
+                <div class="profile-editable-input">
+                    <input type="text" id="city" value="Cochin" disabled>
+                    <i class="fas fa-pen" onclick="editField('city')"></i>
+                </div>
+            </div>
+            <div class="profile-user-info-input">
+                <label for="state">State</label>
+                <div class="profile-editable-input">
+                    <input type="text" id="state" value="kerala" disabled>
+                    <i class="fas fa-pen" onclick="editField('state')"></i>
+                </div>
+            </div>
+            <div class="profile-user-info-input">
+                <label for="country">Country</label>
+                <div class="profile-editable-input">
+                    <input type="text" id="country" value="india" disabled>
+                    <i class="fas fa-pen" onclick="editField('country')"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gender Section -->
+        <div class="profile-gender-section">
+            <span>Gender</span>
+            <div class="profile-gender-options">
+                <label><input type="radio" name="gender" checked> Male</label>
+                <label><input type="radio" name="gender"> Female</label>
+                <label><input type="radio" name="gender"> Others</label>
+            </div>
+        </div>
+
+        <!-- Manage Account -->
+        <div class="profile-settings-item">
+            <span>Manage Account</span>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <!-- Logout and Update Profile Buttons -->
+        <div class="profile-actions">
+            <button class="profile-logout-button">
+                <i class="fas fa-power-off"></i> LOGOUT
+            </button>
+            <button class="profile-update-button">UPDATE PROFILE</button>
+        </div>
+    </div>
+
+
+   <!-- Bottom Footer Section Start -->
+   <div class="bottom-footer-bar">
+    <div class="bottom-footer-nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <i class="fas fa-trophy"></i>
+
+
+        <span>contest</span>
+    </div>
+    <div class="bottom-footer-nav-item plus">
+        <i class="fas fa-wallet"></i>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <i class="fas fa-history"></i>
+        <span>History</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+    </div>
+</div>
+<!-- Bottom Footer Section End -->
+
+
+    <script>
+        function editField(field) {
+            const input = document.getElementById(field);
+            if (input.disabled) {
+                input.disabled = false;
+                input.focus();
+            } else {
+                input.disabled = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

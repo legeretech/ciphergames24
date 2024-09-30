@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard - Leaderboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+        <!-- Header Section -->
+        <header class="profile-settings-header">
+            <div class="profile-back-button">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <h1>My Info & Settings</h1>
+        </header>
+
+
+<section class="scoreboard-container-main">
+    <div class="scoreboard-container">
+        <!-- Header Section -->
+        <div class="scoreboard-header">
+            <h3>MLI vs LSE</h3>
+            <span class="scoreboard-time">24m : 37s</span>
+            <i class="fas fa-share-alt scoreboard-icon"></i>
+        </div>
+
+        <!-- Progress Bar Section -->
+        <div class="scoreboard-progress-container">
+            <div class="scoreboard-progress-info">
+                <h4>₹50,000</h4>
+                <span class="scoreboard-spots-left">1458 Spots Left</span>
+            </div>
+            <div class="scoreboard-progress-bar">
+                <div class="scoreboard-progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Info Bar -->
+        <div class="scoreboard-info-bar">
+            <span><i class="fas fa-users"></i>19 Teams</span>
+            <span><i class="fas fa-fire-alt"></i>7500</span>
+            <span><i class="fas fa-percent"></i>53%</span>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="scoreboard-tabs">
+            <div class="scoreboard-tab active" data-target="scoreboard-leaderboard">Leaderboard</div>
+            <div class="scoreboard-tab" data-target="scoreboard-winnings">Winnings</div>
+        </div>
+
+        <!-- Leaderboard Content -->
+        <div id="scoreboard-leaderboard" class="scoreboard-tab-content active">
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 1</span>
+                <span class="scoreboard-amount">₹7500</span>
+            </div>
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 2</span>
+                <span class="scoreboard-amount">₹2000</span>
+            </div>
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 3</span>
+                <span class="scoreboard-amount">₹500</span>
+            </div>
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 4</span>
+                <span class="scoreboard-amount">₹300</span>
+            </div>
+        </div>
+
+        <!-- Winnings Content -->
+        <div id="scoreboard-winnings" class="scoreboard-tab-content">
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 5 to 10</span>
+                <span class="scoreboard-amount">₹200</span>
+            </div>
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 11 to 25</span>
+                <span class="scoreboard-amount">₹100</span>
+            </div>
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 26 to 55</span>
+                <span class="scoreboard-amount">₹70</span>
+            </div>
+            <div class="scoreboard-list-item">
+                <span class="scoreboard-rank">#Rank 56 to 120</span>
+                <span class="scoreboard-amount">₹60</span>
+            </div>
+        </div>
+
+        <!-- Join Now Button -->
+        <a href="#" class="scoreboard-join-now">₹30 Join Now</a>
+    </div>
+</section>
+    <script>
+        // Tab Switching Functionality
+        const scoreboardTabs = document.querySelectorAll('.scoreboard-tab');
+        const scoreboardTabContents = document.querySelectorAll('.scoreboard-tab-content');
+
+        scoreboardTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                scoreboardTabs.forEach(t => t.classList.remove('active'));
+
+                // Hide all tab content
+                scoreboardTabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding tab content
+                const target = document.getElementById(tab.getAttribute('data-target'));
+                target.classList.add('active');
+            });
+        });
+    </script>
+    <!-- Bottom Footer Section Start -->
+     <div class="bottom-footer-bar">
+        <div class="bottom-footer-nav-item active">
+           <a href="index.html"> <i class="fas fa-home"></i></a> 
+            <span>Home</span>
+        </div>
+        <div class="bottom-footer-nav-item">
+          <a href="contest.html"><i class="fas fa-trophy"></i></a>  
+            <span>contest</span>
+        </div>
+        <div class="bottom-footer-nav-item plus">
+            <a href="wallet.html"><i class="fas fa-wallet"></i></a>
+        </div>
+        <div class="bottom-footer-nav-item">
+            <a href=""><i class="fas fa-history"></i></a>
+            
+            <span>History</span>
+        </div>
+        <div class="bottom-footer-nav-item">
+            <a href="profile.html"> <i class="fas fa-user"></i></a>
+   
+            <span>Profile</span>
+        </div>
+    </div>
+    <!-- Bottom Footer Section End -->
+
+</body>
+</html>

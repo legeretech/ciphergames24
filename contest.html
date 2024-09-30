@@ -1,0 +1,246 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fully Responsive Contest UI</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contest.css">
+    <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="header">
+            <a href="#" class="back-button"><i class="fas fa-arrow-left"></i></a>
+            <div class="match-info">
+                <div><strong>ENG v AUS</strong></div>
+                <div id="countdown">18m 24s left</div>
+            </div>
+            <div class="icons">
+                <span class="icon"><i class="fas fa-fire"></i></span>
+                <span class="icon"><i class="fas fa-bell"></i></span>
+                <span class="icon">₹0</span>
+                <span class="icon" style="background-color: #4CAF50;"><i class="fas fa-plus"></i></span>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="contests">Contests</div>
+            <div class="tab" data-tab="my-contests">My Contests (1)</div>
+            <div class="tab" data-tab="teams">Teams (1)</div>
+            <div class="tab" data-tab="gurus">Gurus</div>
+            <div class="tab" data-tab="scoreboard">Scoreboard</div>
+        </div>
+        
+        <div class="filter-bar">
+            <div id="contestCount">131 Contests</div>
+            <div class="filter-options">
+                <div class="filter-button" id="sortButton"><i class="fas fa-sort-amount-down"></i> Sort</div>
+                <div class="filter-button" id="filterButton"><i class="fas fa-filter"></i> Filter</div>
+            </div>
+        </div>
+        
+        <div id="contestList"></div>
+
+        <div id="filterModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Filter Contests</h2>
+                <div class="filter-option">
+                    <input type="checkbox" id="entryFee" name="entryFee">
+                    <label for="entryFee">Entry Fee</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="prizePool" name="prizePool">
+                    <label for="prizePool">Prize Pool</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="spotsLeft" name="spotsLeft">
+                    <label for="spotsLeft">Spots Left</label>
+                </div>
+                <button id="applyFilter">Apply Filter</button>
+            </div>
+        </div>
+
+        <script>
+            // Simulated API endpoint
+            const API_URL = 'https://api.example.com/contests';
+
+            // Fetch contests from API
+            async function fetchContests() {
+                try {
+             
+                    return [
+                        { id: 1, prizePool: '1.30 Crores', entryFee: 45, spotsLeft: 187116, totalSpots: 401234, firstPrize: '7L', winnerPercentage: 58, maxTeams: 20 },
+                        { id: 2, prizePool: '72 Lakhs', entryFee: 33, spotsLeft: 222008, totalSpots: 303030, firstPrize: '3L', winnerPercentage: 65, maxTeams: 20 },
+                        { id: 3, prizePool: '84 Lakhs', entryFee: 39, spotsLeft: 129661, totalSpots: 299145, firstPrize: '4L', winnerPercentage: 64, maxTeams: 20 },
+                        { id: 4, prizePool: '12 Lakhs', entryFee: 99, spotsLeft: 50000, totalSpots: 100000, firstPrize: '1L', winnerPercentage: 50, maxTeams: 15 }
+                    ];
+                } catch (error) {
+                    console.error('Error fetching contests:', error);
+                    return [];
+                }
+            }
+
+            // Render contests
+            function renderContests(contests) {
+                const contestList = document.getElementById('contestList');
+                contestList.innerHTML = '';
+                
+                contests.forEach(contest => {
+                    const card = document.createElement('div');
+                    card.className = 'contest-card';
+                    card.innerHTML = `
+                      <a href="score.html" class="contest-link">
+                        <div>
+                            <span class="prize-pool">₹${contest.prizePool}</span>
+                            <span class="entry-fee">₹${contest.entryFee}</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: ${(1 - contest.spotsLeft / contest.totalSpots) * 100}%"></div>
+                        </div>
+                        <div class="contest-details">
+                            <span>${contest.spotsLeft.toLocaleString()} Left</span>
+                            <span>${contest.totalSpots.toLocaleString()} Spots</span>
+                        </div>
+                        <div class="contest-details">
+                            <span><i class="fas fa-trophy"></i> ₹${contest.firstPrize}</span>
+                            <span><i class="fas fa-medal"></i> ${contest.winnerPercentage}%</span>
+                            <span><i class="fas fa-users"></i> Upto ${contest.maxTeams}</span>
+                        </div>
+                           </a>
+                    `;
+                    contestList.appendChild(card);
+                });
+                
+                document.getElementById('contestCount').textContent = `${contests.length} Contests`;
+            }
+
+            // Filter contests
+            function filterContests(contests, filters) {
+                return contests.filter(contest => {
+                    return filters.every(filter => {
+                        switch(filter) {
+                            case 'entryFee':
+                                return contest.entryFee <= 50;
+                            case 'prizePool':
+                                return parseFloat(contest.prizePool.replace(/[^0-9.-]+/g,"")) >= 1000000; // 10 Lakhs
+                            case 'spotsLeft':
+                                return contest.spotsLeft >= 100000;
+                            default:
+                                return true;
+                        }
+                    });
+                });
+            }
+
+            // Tab functionality
+            function setupTabs() {
+                const tabs = document.querySelectorAll('.tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        console.log(`Selected tab: ${tab.dataset.tab}`);
+                    });
+                });
+            }
+
+            // Filter modal functionality
+            function setupFilterModal() {
+                const modal = document.getElementById("filterModal");
+                const btn = document.getElementById("filterButton");
+                const span = document.getElementsByClassName("close")[0];
+                const applyBtn = document.getElementById("applyFilter");
+
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
+                applyBtn.onclick = async function() {
+                    const filters = [];
+                    if(document.getElementById("entryFee").checked) filters.push("entryFee");
+                    if(document.getElementById("prizePool").checked) filters.push("prizePool");
+                    if(document.getElementById("spotsLeft").checked) filters.push("spotsLeft");
+
+                    const contests = await fetchContests();
+                    const filteredContests = filterContests(contests, filters);
+                    renderContests(filteredContests);
+                    modal.style.display = "none";
+                }
+            }
+
+            async function init() {
+                const contests = await fetchContests();
+                renderContests(contests);
+                setupTabs();
+
+                const sortButton = document.getElementById('sortButton');
+                sortButton.addEventListener('click', () => {
+                    // Implement sort modal or dropdown here
+                    console.log('Sort button clicked');
+                });
+
+                const filterButton = document.getElementById('filterButton');
+                filterButton.addEventListener('click', () => {
+                    // Implement filter modal or dropdown here
+                    console.log('Filter button clicked');
+                });
+
+                // Countdown timer
+                const countdownElement = document.getElementById('countdown');
+                let timeLeft = 18 * 60 + 24; // 18 minutes and 24 seconds in seconds
+                setInterval(() => {
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    countdownElement.textContent = `${minutes}m ${seconds}s left`;
+                    if (timeLeft > 0) timeLeft--;
+                }, 1000);
+            }
+
+            init();
+        </script>
+
+
+
+ <!-- Bottom Footer Section Start -->
+ <div class="bottom-footer-bar">
+    <div class="bottom-footer-nav-item active">
+       <a href="index.html"> <i class="fas fa-home"></i></a> 
+        <span>Home</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+      <a href="contest.html"><i class="fas fa-trophy"></i></a>  
+        <span>contest</span>
+    </div>
+    <div class="bottom-footer-nav-item plus">
+        <a href="wallet.html"><i class="fas fa-wallet"></i></a>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <a href=""><i class="fas fa-history"></i></a>
+        
+        <span>History</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <a href="profile.html"> <i class="fas fa-user"></i></a>
+
+        <span>Profile</span>
+    </div>
+</div>
+<!-- Bottom Footer Section End -->
+
+
+
+
+
+    </body>
+    </html>

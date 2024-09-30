@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup & Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM6k46j5qlb9/X5ugL8apf5yXXV7Kc7DdWz4iWk" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0px;
+            background-color: #f6f7fb;
+        }
+
+        .signup-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 1400px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .signup-form-section,
+        .signup-graphic-section {
+            width: 50%;
+            padding: 40px;
+        }
+
+        .signup-form-section {
+            background-color: #fff;
+        }
+
+        .signup-graphic-section {
+            position: relative;
+            overflow: hidden; /* Ensures that the image does not overflow the container */
+        }
+
+        .signup-graphic-section img {
+            position: absolute; /* Positions the image absolutely within the container */
+            top: 50%;
+            left: 50%;
+            width: 100%; /* Ensures the image covers the entire width */
+            height: 100%; /* Ensures the image covers the entire height */
+            object-fit: cover; /* Ensures the aspect ratio is maintained while covering the container */
+            transform: translate(-50%, -50%); /* Centers the image */
+        }
+
+        .signup-h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .signup-p {
+            font-size: 1em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .signup-login-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            justify-content: center;
+        }
+
+        .signup-login-btn img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .signup-google-btn {
+            background-color: #4285F4;
+            color: white;
+        }
+
+        .signup-apple-btn {
+            background-color: #000000;
+            color: white;
+        }
+
+        .signup-auth-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .signup-form-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
+        .signup-input,
+        .signup-select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .signup-form-footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .signup-form-footer a {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+
+        .signup-graphic-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .signup-graphic-section p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .signup-dob-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .signup-terms-section {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .signup-terms-section input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .signup-form-section,
+            .signup-graphic-section {
+                width: 100%;
+          
+                padding: 20px;
+            }
+
+            .signup-container {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .signup-h1 {
+                font-size: 1.5em;
+            }
+
+            .signup-form-section,
+            .signup-graphic-section {
+                padding: 15px;
+            }
+
+            .signup-input,
+            .signup-select {
+                padding: 8px;
+            }
+
+            .signup-form-submit {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 300px) {
+            .signup-input,
+            .signup-select {
+                padding: 6px;
+            }
+
+            .signup-form-submit {
+                padding: 8px;
+            }
+
+            .signup-h1 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+
+    <div class="signup-container">
+        <div class="signup-form-section">
+            <div id="signup-form-content">
+                <h1 class="signup-h1">Sign Up 👋</h1>
+                <p class="signup-p">Please create your account!</p>
+
+                <div class="signup-auth-buttons">
+                    <button class="signup-login-btn signup-google-btn" onclick="googleLogin()">
+                        <img src="./images/google_2702602.png" alt="Google Icon"> Sign up with Google
+                    </button>
+                    <button class="signup-login-btn signup-apple-btn" onclick="appleLogin()">
+                        <img src="./images/apple_5969046.png" alt="Apple Icon"> Sign up with Apple
+                    </button>
+                </div>
+
+                <p class="signup-p">Or</p>
+
+                <form id="signup-form">
+                    <label for="signup-name">Name:</label>
+                    <input type="text" id="signup-name" class="signup-input" placeholder="John Doe" required>
+
+                    <label for="signup-referral">Referral Id (optional):</label>
+                    <input type="text" id="signup-referral" class="signup-input" placeholder="123456" required>
+
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" class="signup-input" placeholder="david@example.com" required>
+
+                    <label for="signup-mobile">Mobile:</label>
+                    <input type="tel" id="signup-mobile" class="signup-input" placeholder="1234567890" required>
+
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" class="signup-input" placeholder="********" required>
+
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" class="signup-input" placeholder="********" required>
+
+                    <div class="signup-dob-section">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" class="signup-input" name="dob" required>
+                    </div>
+
+                    <div class="signup-terms-section">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+                    </div>
+
+                    <button type="submit" class="signup-form-submit">Sign Up</button>
+                </form>
+
+                <div class="signup-form-footer">
+                    <p>Already have an account? <a href="#" id="signup-toggle-to-login">Login</a></p>
+                    <p><a href="#" id="signup-forgot-password">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="signup-graphic-section">
+            <img src="./images/Login page.jpg" alt="Signup Graphic">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .otp-container-main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(90deg, #38cb89, #36b78c);
+            font-family: 'Arial', sans-serif;
+            padding: 10px; /* Adjusted for small screens */
+        }
+
+        .otp-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px 20px; /* Adjusted for small screens */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .otp-h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .otp-p {
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .otp-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 5px; /* Reduced gap for smaller screens */
+            margin-bottom: 30px;
+        }
+
+        .otp-input {
+            width: 40px; /* Adjusted width for smaller screens */
+            height: 50px; /* Adjusted height for smaller screens */
+            text-align: center;
+            font-size: 1.5em;
+            border-radius: 12px;
+            border: 2px solid #ddd;
+            outline: none;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+
+        .otp-input:focus {
+            border-color: #48f86e;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+            transform: scale(1.05);
+        }
+
+        .otp-submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, #38cb89, #36b78c);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .otp-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .otp-submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .otp-resend-text {
+            margin-top: 25px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .otp-resend-link {
+            color: #36ff6c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .otp-resend-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 480px) {
+            .otp-container {
+                padding: 30px 15px; /* Adjust padding */
+            }
+
+            .otp-h1 {
+                font-size: 1.8em;
+            }
+
+            .otp-p {
+                font-size: 1em;
+            }
+
+            .otp-input {
+                width: 35px; /* Smaller width for smaller screens */
+                height: 45px; /* Smaller height for smaller screens */
+                font-size: 1.3em;
+            }
+
+            .otp-submit-btn {
+                padding: 12px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 200px) {
+            .otp-h1 {
+                font-size: 1.5em; /* Smaller font for very small screens */
+            }
+
+            .otp-input {
+                width: 30px; /* Even smaller width */
+                height: 40px; /* Even smaller height */
+                font-size: 1.2em; /* Adjust font size */
+            }
+
+            .otp-submit-btn {
+                padding: 10px; /* Smaller padding */
+                font-size: 1em; /* Smaller font size */
+            }
+
+            .otp-resend-text {
+                font-size: 0.8em; /* Smaller text size */
+            }
+        }
+    </style>
+</head>
+<body>
+<section class="otp-container-main">
+    <div class="otp-container">
+        <h1 class="otp-h1">Verify Your Code</h1>
+        <p class="otp-p">We've sent a 5-digit code to your email. Please enter it below.</p>
+
+        <div class="otp-inputs">
+            <input type="text" maxlength="1" class="otp-input" autofocus>
+            <input type="text" maxlength="1" class="otp-input">
+            <input type="text" maxlength="1" class="otp-input">
+            <input type="text" maxlength="1" class="otp-input">
+            <input type="text" maxlength="1" class="otp-input">
+        </div>
+
+        <button class="otp-submit-btn">Verify Now</button>
+
+        <p class="otp-resend-text">Didn't receive the code? <a href="#" class="otp-resend-link">Resend OTP</a></p>
+    </div>
+</section>
+    <script>
+        const inputs = document.querySelectorAll('.otp-input');
+        inputs.forEach((input, index) => {
+            input.addEventListener('keyup', (e) => {
+                if (e.key >= 0 && e.key <= 9) {
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                } else if (e.key === 'Backspace') {
+                    if (index > 0) {
+                        inputs[index - 1].focus();
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

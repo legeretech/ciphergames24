@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+   <link rel="stylesheet" href="index.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <!-- navbar section start  -->
+  <nav class="navbar">
+    <div class="navbar-container">
+        <div class="logo">
+            <img src="./images/Asset 1xxhdpi.png" alt="Logo">
+
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#play">How To Play</a></li>
+            <li><a href="#fantasy">Fantasy Point System</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#legality">Legality</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+<!-- navbar section end  -->
+
+
+<section class="history-tabs-main">
+    <div class="history-tabs">
+        <div class="history-tab-item active" data-tab="upcoming">Upcoming</div>
+        <div class="history-tab-item" data-tab="live">Live</div>
+        <div class="history-tab-item" data-tab="completed">Completed</div>
+    </div>
+
+    <!-- Tab content -->
+    <div class="history-match-card" data-content="upcoming">
+        <div class="history-match-header">
+            <span>South Africa T20 Challenge</span>
+            <span>28 Sep, 5:30 pm</span>
+        </div>
+        <div class="history-team-section">
+            <div class="history-team">
+                <img src="./images/google_2702602.png" alt="KTS Logo">
+                <span class="history-team-code">KTS</span>
+                <span class="history-status">Upcoming</span>
+            </div>
+            <div class="history-team">
+                <img src="./images/google_2702602.png" alt="NWD Logo">
+                <span class="history-team-code">NWD</span>
+            </div>
+        </div>
+        <div class="history-details">
+            <span>1 Team</span>
+        </div>
+    </div>
+
+    <div class="history-match-card" data-content="completed">
+        <div class="history-match-header">
+            <span>England vs Australia ODI</span>
+            <span>27 Sep, 7:16 pm</span>
+        </div>
+        <div class="history-team-section">
+            <div class="history-team">
+                <img src="./images/google_2702602.png" alt="ENG Logo">
+                <span class="history-team-code">ENG</span>
+                <span class="history-status">Completed</span>
+            </div>
+            <div class="history-team">
+                <img src="./images/google_2702602.png" alt="AUS Logo">
+                <span class="history-team-code">AUS</span>
+            </div>
+        </div>
+        <div class="history-details">
+            <span>1 Team • 1 Contest</span>
+            <span class="history-price">₹39</span>
+        </div>
+    </div>
+
+    <div class="history-match-card" data-content="completed">
+        <div class="history-match-header">
+            <span>England vs Australia ODI</span>
+            <span>24 Sep, 5:00 pm</span>
+        </div>
+        <div class="history-team-section">
+            <div class="history-team">
+                <img src="./images/google_2702602.png" alt="ENG Logo">
+                <span class="history-team-code">ENG</span>
+                <span class="history-status">Completed</span>
+            </div>
+            <div class="history-team">
+                <img src="./images/google_2702602.png" alt="AUS Logo">
+                <span class="history-team-code">AUS</span>
+            </div>
+        </div>
+        <div class="history-details">
+            <span>1 Team • 1 Contest</span>
+            <span class="history-price">₹39</span>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle tab switching
+        const tabs = document.querySelectorAll('.history-tab-item');
+        const matchCards = document.querySelectorAll('.history-match-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to the clicked tab
+                tab.classList.add('active');
+
+                // Get the tab attribute (upcoming, live, completed)
+                const tabContent = tab.getAttribute('data-tab');
+
+                // Show/Hide match cards based on the selected tab
+                matchCards.forEach(card => {
+                    if (card.getAttribute('data-content') === tabContent) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Default: Show only 'completed' tab matches
+        document.querySelector('.history-tab-item.active').click();
+    </script>
+
+
+     <!-- Bottom Footer Section Start -->
+     <div class="bottom-footer-bar">
+        <div class="bottom-footer-nav-item active">
+           <a href="index.html"> <i class="fas fa-home"></i></a> 
+            <span>Home</span>
+        </div>
+        <div class="bottom-footer-nav-item">
+          <a href="contest.html"><i class="fas fa-trophy"></i></a>  
+            <span>contest</span>
+        </div>
+        <div class="bottom-footer-nav-item plus">
+            <a href="wallet.html"><i class="fas fa-wallet"></i></a>
+        </div>
+        <div class="bottom-footer-nav-item">
+            <a href=""><i class="fas fa-history"></i></a>
+            
+            <span>History</span>
+        </div>
+        <div class="bottom-footer-nav-item">
+            <a href="profile.html"> <i class="fas fa-user"></i></a>
+   
+            <span>Profile</span>
+        </div>
+    </div>
+    <!-- Bottom Footer Section End -->
+</section>
+</body>
+</html>

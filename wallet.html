@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Page</title>
+    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+     <!-- navbar section start  -->
+     <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="./images/Asset 1xxhdpi.png" alt="Logo">
+
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#play">How To Play</a></li>
+                <li><a href="#fantasy">Fantasy Point System</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#legality">Legality</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#terms">Terms & Conditions</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar section end  -->
+
+    <div class="wallet-container">
+        <header class="wallet-header">
+            <div class="wallet-logo">
+                <img src="./images/Asset 1xxhdpi.png" alt="cipher Logo">
+            </div>
+            <div class="wallet-support-icon">
+                <i style="color: white; font-size: 2.0rem;" class="fas fa-headset" aria-hidden="true"></i>
+            </div>
+        </header>
+        
+        <!-- Balance Section -->
+        <div class="wallet-balance">
+            <div class="wallet-balance-circle">
+                <span style="color: white;" class="currency-icon">₹</span>
+            </div>
+            <div class="wallet-balance-info">
+                <p>Total Balance</p>
+                <h2>₹<span id="wallet-deposit-amount">25</span></h2>
+                <a href="#" class="wallet-view-statement">View Statement</a>
+            </div>
+            <button class="wallet-add-cash-btn" onclick="openAddCashPopup()">+ ADD CASH</button>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="wallet-stats">
+            <div class="wallet-stat-item">
+                <p>Winning</p>
+                <h3>₹0</h3>
+            </div>
+            <div class="wallet-stat-item">
+                <p>Deposit</p>
+                <h3>₹0</h3>
+            </div>
+            <div class="wallet-stat-item">
+                <p>Game Bonus</p>
+                <h3>₹25</h3>
+            </div>
+        </div>
+
+        <!-- Actions Section -->
+        <div class="wallet-actions">
+            <div class="wallet-action-item" onclick="openRummyTicketPopup()">
+                <p>Rummy Tickets</p>
+                <span>No Ticket Available</span>
+            </div>
+            <div class="wallet-action-item" onclick="openRedeemTicketPopup()">
+                <p>Redeem Coupon</p>
+                <span>Redeem your RummyTitans Coupon</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Cash Popup Modal -->
+    <div class="wallet-popup" id="add-cash-popup">
+        <div class="wallet-popup-content">
+            <span class="wallet-close-btn" onclick="closePopup('add-cash-popup')">×</span>
+            <h3>Add Cash</h3>
+            <label for="wallet-amount">Enter Amount:</label>
+            <input type="number" id="wallet-amount" placeholder="Enter Amount">
+            <div class="wallet-quick-amounts">
+                <button onclick="setQuickAmount(100)">₹100</button>
+                <button onclick="setQuickAmount(500)">₹500</button>
+                <button onclick="setQuickAmount(1000)">₹1000</button>
+            </div>
+            <div class="wallet-amount-details">
+                <p>Deposit: <span id="wallet-deposit-amount-popup">₹0</span></p>
+                <p>Tax (28%): <span id="wallet-tax-amount">₹0</span></p>
+                <p>Total Amount: <span id="wallet-total-amount">₹0</span></p>
+            </div>
+            <button class="wallet-submit-btn">Proceed</button>
+        </div>
+    </div>
+
+    <!-- Rummy Ticket Popup Modal -->
+    <div class="wallet-popup" id="rummy-ticket-popup">
+        <div class="wallet-popup-content">
+            <span class="wallet-close-btn" onclick="closePopup('rummy-ticket-popup')">×</span>
+            <h3>Rummy Ticket</h3>
+            <label for="rummy-ticket-input">Enter Ticket Code:</label>
+            <input type="text" id="rummy-ticket-input" placeholder="Enter Ticket Code">
+            <button class="wallet-submit-btn" onclick="submitRummyTicket()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Redeem Ticket Popup Modal -->
+    <div class="wallet-popup" id="redeem-ticket-popup">
+        <div class="wallet-popup-content">
+            <span class="wallet-close-btn" onclick="closePopup('redeem-ticket-popup')">×</span>
+            <h3>Redeem Ticket</h3>
+            <label for="redeem-ticket-input">Enter Redeem Code:</label>
+            <input type="text" id="redeem-ticket-input" placeholder="Enter Redeem Code">
+            <button class="wallet-submit-btn" onclick="submitRedeemTicket()">Submit</button>
+        </div>
+    </div>
+
+
+
+<!-- Bottom Footer Section Start -->
+<div class="bottom-footer-bar">
+    <div class="bottom-footer-nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <i class="fas fa-trophy"></i>
+
+
+        <span>contest</span>
+    </div>
+    <div class="bottom-footer-nav-item plus">
+        <i class="fas fa-wallet"></i>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <i class="fas fa-history"></i>
+        <span>History</span>
+    </div>
+    <div class="bottom-footer-nav-item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+    </div>
+</div>
+<!-- Bottom Footer Section End -->
+
+
+    <!-- wallet script -->
+    <script>
+        function openAddCashPopup() {
+            document.getElementById('add-cash-popup').style.display = 'flex';
+        }
+
+        function openRummyTicketPopup() {
+            document.getElementById('rummy-ticket-popup').style.display = 'flex';
+        }
+
+        function openRedeemTicketPopup() {
+            document.getElementById('redeem-ticket-popup').style.display = 'flex';
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+
+        function setQuickAmount(amount) {
+            document.getElementById('wallet-amount').value = amount;
+            calculateAmounts();
+        }
+
+        function calculateAmounts() {
+            const amount = parseFloat(document.getElementById('wallet-amount').value) || 0;
+            const tax = amount * 0.28; // 28% tax
+            const total = amount + tax;
+            document.getElementById('wallet-deposit-amount-popup').textContent = `₹${amount}`;
+            document.getElementById('wallet-tax-amount').textContent = `₹${tax.toFixed(2)}`;
+            document.getElementById('wallet-total-amount').textContent = `₹${total.toFixed(2)}`;
+        }
+
+        function submitRummyTicket() {
+            const ticketCode = document.getElementById('rummy-ticket-input').value;
+            if (ticketCode) {
+                // Perform your ticket submission logic here
+                alert(`Rummy Ticket Code Submitted: ${ticketCode}`);
+                closePopup('rummy-ticket-popup');
+            } else {
+                alert("Please enter a valid ticket code.");
+            }
+        }
+
+        function submitRedeemTicket() {
+            const redeemCode = document.getElementById('redeem-ticket-input').value;
+            if (redeemCode) {
+                // Perform your redeem submission logic here
+                alert(`Redeem Code Submitted: ${redeemCode}`);
+                closePopup('redeem-ticket-popup');
+            } else {
+                alert("Please enter a valid redeem code.");
+            }
+        }
+    </script>
+      <!-- wallet script -->
+</body>
+</html>

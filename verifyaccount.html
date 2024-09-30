@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+        <!-- Header Section -->
+        <header class="profile-settings-header">
+            <div class="profile-back-button">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+          
+        </header>
+    
+    <section class="verifyaccount-container-mian">
+    <div class="verifyaccount-container">
+        <h1>User Profile Verification</h1>
+        <div class="verifyaccount-tabs">
+            <button class="verifyaccount-tab active" onclick="openTab(event, 'email')">
+                <i class="fas fa-envelope"></i> Email
+            </button>
+            <button class="verifyaccount-tab" onclick="openTab(event, 'id')">
+                <i class="fas fa-id-card"></i> ID
+            </button>
+            <button class="verifyaccount-tab" onclick="openTab(event, 'address')">
+                <i class="fas fa-home"></i> Address
+            </button>
+        </div>
+
+        <div id="email" class="verifyaccount-tab-content active">
+            <h2>Email Verification</h2>
+            <p>Your email address has been successfully verified.</p>
+            <div class="verifyaccount-status verifyaccount-verified">
+                <i class="verifyaccount-status-icon fas fa-check-circle"></i>
+                <span class="verifyaccount-status-text">Verified</span>
+            </div>
+        </div>
+
+        <div id="id" class="verifyaccount-tab-content">
+            <h2>ID Verification</h2>
+            <p>Your ID has been successfully verified.</p>
+            <div class="verifyaccount-status verifyaccount-verified">
+                <i class="verifyaccount-status-icon fas fa-check-circle"></i>
+                <span class="verifyaccount-status-text">Verified</span>
+            </div>
+        </div>
+
+        <div id="address" class="verifyaccount-tab-content">
+            <h2>Address Verification</h2>
+            <p>Your address has not been verified yet. Please submit your proof of address.</p>
+            <div class="verifyaccount-status verifyaccount-not-verified">
+                <i class="verifyaccount-status-icon fas fa-times-circle"></i>
+                <span class="verifyaccount-status-text">Not Verified</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("verifyaccount-tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("verifyaccount-tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    </section>
+
+
+      <!-- Bottom Footer Section Start -->
+      <div class="bottom-footer-bar">
+        <div class="bottom-footer-nav-item active">
+           <a href="index.html"> <i class="fas fa-home"></i></a> 
+            <span>Home</span>
+        </div>
+        <div class="bottom-footer-nav-item">
+          <a href="contest.html"><i class="fas fa-trophy"></i></a>  
+            <span>contest</span>
+        </div>
+        <div class="bottom-footer-nav-item plus">
+            <a href="wallet.html"><i class="fas fa-wallet"></i></a>
+        </div>
+        <div class="bottom-footer-nav-item">
+            <a href=""><i class="fas fa-history"></i></a>
+            
+            <span>History</span>
+        </div>
+        <div class="bottom-footer-nav-item">
+            <a href="profile.html"> <i class="fas fa-user"></i></a>
+   
+            <span>Profile</span>
+        </div>
+    </div>
+    <!-- Bottom Footer Section End -->
+</body>
+</html>
