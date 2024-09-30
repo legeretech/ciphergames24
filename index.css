@@ -1197,6 +1197,8 @@ select {
 /* history */
 .history-tabs-main{
     padding: 20px;
+    max-width: 1200px; /* Set the maximum width to 1200px */
+    margin: 0 auto; /* Center the element horizontally */
 }
 .history-tabs {
     display: flex;
@@ -1291,7 +1293,7 @@ select {
 
 /* Main Container */
 .scoreboard-container {
-    max-width: 450px;
+    max-width: 1200px;
     margin: 0 auto;
 
 
